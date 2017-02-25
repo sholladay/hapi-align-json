@@ -25,7 +25,7 @@ const alignJson = require('hapi-align-json');
 Register the plugin on your server.
 
 ```js
-server.register(perm)
+server.register(alignJson)
     .then(() => {
         return server.start();
     })

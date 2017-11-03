@@ -37,6 +37,8 @@
     "xo": "^0.17.0"
   },
   "keywords": [
+    "hapi",
+    "plugin",
     "json",
     "values",
     "align",

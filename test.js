@@ -1,30 +1,25 @@
 import test from 'ava';
-import { Server } from 'hapi';
+import hapi from 'hapi';
 import alignJson from '.';
 
 const mockRoute = (option) => {
-    return Object.assign(
-        {
-            method : 'GET',
-            path   : '/',
-            handler(request, reply) {
-                reply({ foo : 'bar' });
-            }
+    return {
+        method : 'GET',
+        path   : '/',
+        handler() {
+            return { foo : 'bar' };
         },
-        option
-    );
+        ...option
+    };
 };
 
 const mockServer = async (option) => {
-    const { plugin, route } = Object.assign(
-        {
-            plugin : alignJson,
-            route  : mockRoute()
-        },
-        option
-    );
-    const server = new Server();
-    server.connection();
+    const { plugin, route } = {
+        plugin : alignJson,
+        route  : mockRoute(),
+        ...option
+    };
+    const server = hapi.server();
     if (plugin) {
         await server.register(plugin);
     }
@@ -35,13 +30,11 @@ const mockServer = async (option) => {
 };
 
 const mockRequest = (server, option) => {
-    return server.inject(Object.assign(
-        {
-            method : 'GET',
-            url    : '/'
-        },
-        option
-    ));
+    return server.inject({
+        method : 'GET',
+        url    : '/',
+        ...option
+    });
 };
 
 test('without alignJson', async (t) => {
@@ -67,8 +60,8 @@ test('alignJson basics', async (t) => {
 test('aignJson nested object', async (t) => {
     const server = await mockServer({
         route : mockRoute({
-            handler(request, reply) {
-                reply({
+            handler() {
+                return {
                     foo  : 'bar',
                     ping : 'pong',
                     wee  : {
@@ -77,7 +70,7 @@ test('aignJson nested object', async (t) => {
                     },
                     knick : 'knack',
                     back  : 'pack'
-                });
+                };
             }
         })
     });

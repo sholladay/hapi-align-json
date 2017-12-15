@@ -16,37 +16,31 @@ npm install hapi-align-json --save
 
 ## Usage
 
-Get it into your program.
+Register the plugin on your server to enable beautiful JSON responses.
 
 ```js
+const hapi = require('hapi');
 const alignJson = require('hapi-align-json');
-```
 
-Register the plugin on your server.
+const server = hapi.server();
 
-```js
-server.register(alignJson)
-    .then(() => {
-        return server.start();
-    })
-    .then(() => {
-        console.log(server.info.uri);
+const init = async () => {
+    await server.register(alignJson);
+    server.route({
+        method : 'GET',
+        path   : '/',
+        handler(request, reply) {
+            reply({ foo : 'bar', ping : 'pong', wee : { hi : 'bye',  tea : 'time' }, knick : 'knack', back : 'pack' });
+        }
     });
+    await server.start();
+    console.log('Server ready:', server.info.uri);
+};
+
+init();
 ```
 
-Set up a route that serves JSON.
-
-```js
-server.route({
-    method : 'GET',
-    path   : '/',
-    handler(request, reply) {
-        reply({ foo : 'bar', ping : 'pong', wee : { hi : 'bye',  tea : 'time' }, knick : 'knack', back : 'pack' });
-    }
-});
-```
-
-Visiting the above route will return this formatted JSON response.
+Visiting the above route will return a JSON response with highly readable formatting because of this plugin.
 
 ```json
 {

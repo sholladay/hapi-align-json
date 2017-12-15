@@ -4,31 +4,26 @@ const align = require('json-align');
 const pkg = require('./package.json');
 
 // This logic is ripped from hapi:
-// https://github.com/hapijs/hapi/blob/713ec759714e493def9cbb114234309c71035d7b/lib/response.js#L565
+// https://github.com/hapijs/hapi/blob/c23070a3de1b328876d5e64e679a147fafb04b38/lib/response.js#L547
 const shouldStringify = (response) => {
     return response.variety === 'plain' &&
         response.source !== null &&
         typeof response.source !== 'string';
 };
 
-const register = (server, option, done) => {
-    server.ext('onPreResponse', (request, reply) => {
+const register = (server) => {
+    server.ext('onPreResponse', (request, h) => {
         const { response } = request;
 
         if (shouldStringify(response)) {
             response.source = align(response.source);
         }
 
-        reply.continue();
+        return h.continue;
     });
-
-    done();
 };
 
-register.attributes = {
+module.exports.plugin = {
+    register,
     pkg
-};
-
-module.exports = {
-    register
 };

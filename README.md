@@ -1,6 +1,6 @@
-# hapi-align-json [![Build status for hapi-align-json on Circle CI.](https://img.shields.io/circleci/project/sholladay/hapi-align-json/master.svg "Circle Build Status")](https://circleci.com/gh/sholladay/hapi-align-json "Hapi Align Json Builds")
+# hapi-align-json [![Build status for hapi Align JSON](https://img.shields.io/circleci/project/sholladay/hapi-align-json/master.svg "Build Status")](https://circleci.com/gh/sholladay/hapi-align-json "Builds")
 
-> Pretty print JSON responses.
+> Respond with beautiful JSON
 
 ## Why?
 
@@ -63,16 +63,16 @@ Visiting the above route will return this formatted JSON response.
 
 ## Contributing
 
-See our [contributing guidelines](https://github.com/sholladay/hapi-align-json/blob/master/CONTRIBUTING.md "The guidelines for participating in this project.") for more details.
+See our [contributing guidelines](https://github.com/sholladay/hapi-align-json/blob/master/CONTRIBUTING.md "Guidelines for participating in this project") for more details.
 
 1. [Fork it](https://github.com/sholladay/hapi-align-json/fork).
 2. Make a feature branch: `git checkout -b my-new-feature`
 3. Commit your changes: `git commit -am 'Add some feature'`
 4. Push to the branch: `git push origin my-new-feature`
-5. [Submit a pull request](https://github.com/sholladay/hapi-align-json/compare "Submit code to this project for review.").
+5. [Submit a pull request](https://github.com/sholladay/hapi-align-json/compare "Submit code to this project for review").
 
 ## License
 
-[MPL-2.0](https://github.com/sholladay/hapi-align-json/blob/master/LICENSE "The license for hapi-align-json.") © [Seth Holladay](http://seth-holladay.com "Author of hapi-align-json.")
+[MPL-2.0](https://github.com/sholladay/hapi-align-json/blob/master/LICENSE "License for hapi-align-json") © [Seth Holladay](https://seth-holladay.com "Author of hapi-align-json")
 
 Go make something, dang it.

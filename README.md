@@ -29,8 +29,8 @@ const init = async () => {
     server.route({
         method : 'GET',
         path   : '/',
-        handler(request, reply) {
-            reply({ foo : 'bar', ping : 'pong', wee : { hi : 'bye',  tea : 'time' }, knick : 'knack', back : 'pack' });
+        handler() {
+            return { foo : 'bar', ping : 'pong', wee : { hi : 'bye',  tea : 'time' }, knick : 'knack', back : 'pack' };
         }
     });
     await server.start();

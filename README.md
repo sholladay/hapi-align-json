@@ -1,4 +1,4 @@
-# hapi-align-json [![Build status for hapi Align JSON](https://img.shields.io/circleci/project/sholladay/hapi-align-json/master.svg "Build Status")](https://circleci.com/gh/sholladay/hapi-align-json "Builds")
+# hapi-align-json [![Build status for hapi Align JSON](https://travis-ci.com/sholladay/hapi-align-json.svg?branch=master "Build Status")](https://travis-ci.com/sholladay/hapi-align-json "Builds")
 
 > Respond with beautiful JSON
 

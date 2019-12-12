@@ -11,7 +11,7 @@
 ## Install
 
 ```sh
-npm install hapi-align-json --save
+npm install hapi-align-json
 ```
 
 ## Usage
@@ -19,7 +19,7 @@ npm install hapi-align-json --save
 Register the plugin on your server to enable beautiful JSON responses.
 
 ```js
-const hapi = require('hapi');
+const hapi = require('@hapi/hapi');
 const alignJson = require('hapi-align-json');
 
 const server = hapi.server();

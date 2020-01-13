@@ -1,6 +1,6 @@
 {
     "name": "hapi-align-json",
-    "version": "3.0.0",
+    "version": "4.0.0",
     "description": "Respond with beautiful JSON",
     "homepage": "https://github.com/sholladay/hapi-align-json",
     "main": "index.js",

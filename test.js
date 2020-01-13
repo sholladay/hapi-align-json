@@ -35,6 +35,11 @@ test('without alignJson', async (t) => {
     t.is(response.payload, '{"foo":"bar"}');
 });
 
+test('server can initialize', async (t) => {
+    const server = await makeServer();
+    await t.notThrowsAsync(server.initialize());
+});
+
 test('alignJson basics', async (t) => {
     const server = await makeServer();
     server.route(makeRoute());
